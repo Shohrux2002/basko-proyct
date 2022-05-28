@@ -1,9 +1,4 @@
-import { Link } from "react-router-dom";
-import logo from "../../Assets/images/logo-1.png";
-import left from "../../Assets/images/leftArrow.svg";
-import right from "../../Assets/images/rightArrow.svg";
 import "./_answer.scss";
-import { useState } from "react";
 
 function PositionInput(props) {
   return (

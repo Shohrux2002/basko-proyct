@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import React from "react";
 import logo from "../../Assets/images/logo-1.png";
 import NameInput from "./Answer2";
@@ -11,6 +10,7 @@ import About from "./About";
 import Resistance from "./Resistance";
 import Cause from "./Couse";
 import Didline from "./Didline";
+import { Link } from "react-router-dom";
 
 import "./_answer.scss";
 
@@ -28,7 +28,7 @@ class Answer1 extends React.Component {
       resistance: "",
       cause: "",
       didline: "",
-      formNubmer: 1
+      formNubmer: 1,
     };
   }
 
@@ -55,7 +55,7 @@ class Answer1 extends React.Component {
   };
   getData = (e) => {
     this.setState({
-      about: e
+      about: e,
     });
   };
   getRasistance = (e) => {
@@ -70,12 +70,13 @@ class Answer1 extends React.Component {
   renderBtn() {
     if (this.state.formNubmer === 10) {
       return (
-        <Link className='link-btn' to={"/"}>
+        <Link className="link-btn" to={"/"}>
           <button
-            className='answer__left--subbtn  btn-send'
+            className="answer__left--subbtn  btn-send"
             onClick={(e) => {
               e.preventDefault();
-            }}>
+            }}
+          >
             Жўнатиш
           </button>
         </Link>
@@ -83,12 +84,13 @@ class Answer1 extends React.Component {
     } else {
       return (
         <button
-          className='answer__left--subbtn '
+          className="answer__left--subbtn "
           onClick={(e) => {
             e.preventDefault();
             this.setState({ formNubmer: this.state.formNubmer + 1 });
             console.log(this.state);
-          }}>
+          }}
+        >
           Кейингиси &rarr;
         </button>
       );
@@ -123,19 +125,20 @@ class Answer1 extends React.Component {
   }
   render() {
     return (
-      <section className='answer'>
-        <div className='answer__header'>
+      <section className="answer">
+        <div className="answer__header">
           <Link to={"/"}>
-            <img className='answer__header-logo' src={logo} alt='logo' />
+            <img className="answer__header-logo" src={logo} alt="logo" />
           </Link>
           <span
             style={{ width: `${(this.state.formNubmer - 1) * 10}%` }}
-            className='answer__header-span'></span>
+            className="answer__header-span"
+          ></span>
         </div>
-        <div className='main'>
-          <form className='answer__left'>
+        <div className="main">
+          <form className="answer__left">
             {this.inputRender()}
-            <div className='answer__left-box'>
+            <div className="answer__left-box">
               <button
                 onClick={(e) => {
                   e.preventDefault();
@@ -143,19 +146,20 @@ class Answer1 extends React.Component {
                     this.setState({ formNubmer: this.state.formNubmer - 1 });
                   console.log(this.state.formNubmer);
                 }}
-                className='answer__left--backbtn'>
-                <span className='btn-icon'>&larr;</span> Орқага
+                className="answer__left--backbtn"
+              >
+                <span className="btn-icon">&larr;</span> Орқага
               </button>
 
               {this.renderBtn()}
             </div>
           </form>
-          <div className='answer__right'>
-            <span className='answer__right-span1'>
+          <div className="answer__right">
+            <span className="answer__right-span1">
               {" "}
               {this.state.formNubmer}0%
             </span>
-            <span className='answer__right-span2'>
+            <span className="answer__right-span2">
               {this.state.formNubmer}/10
             </span>
           </div>
